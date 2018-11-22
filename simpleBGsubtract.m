@@ -1,18 +1,24 @@
 %This function renders a video for simple background subtraction
-function simpleBGsubtract(folder)
-
-    directory = strcat('DataSets/',folder,'/*.jpg'); %concat strings to get file path
+%function simpleBGsubtract(folder)
+    folder = '/getout/';
+    directory = strcat('DataSets',folder,'*.jpg'); %concat strings to get file path
     files = dir(directory'); %load .jpg pictures to files (struct array)
 
-    vBGsubtract = VideoWriter('ArenaA_simpleBGsubtract.avi'); %Create video writing object
+    vBGsubtract = VideoWriter('getout_simpleBGsubtract.avi'); %Create video writing object
     open(vBGsubtract); %open video object to import data to be rendered
 
-    for i = 2:length(files)
-        image1 = strcat('DataSets',folder,files(i-1).name); %concat file path to previous picture
+    threshold = 30; %parameter for thresholding images
+    
+    image1 = strcat('DataSets',folder,files(1).name); %concat file path to first picture
+    
+    for i = 1:length(files)
         image2 = strcat('DataSets',folder,files(i).name); %concat file path to current picture
 
-        new = (grayscale(image2) - grayscale(image1)).^2; %get grayscale difference
-
+        new = abs(grayscale(image1) - grayscale(image2)); %get grayscale difference
+        
+        %Image Thresholding
+        new = thresholding(new, threshold); %filter image through threshold
+        
         figure('visible', 'off'); %generate figure but don't display
         imshow(new); %import differentiated picture to figure
 
@@ -23,4 +29,4 @@ function simpleBGsubtract(folder)
 
     close(vBGsubtract); %close video object to finish
 
-end
+%end
