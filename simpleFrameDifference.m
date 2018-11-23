@@ -14,12 +14,12 @@
     for i = 1:length(files)
         image2 = strcat('DataSets',folder,files(i).name); %concat file path to current picture
 
-        new = abs(grayscale(image1) - grayscale(image2)); %get grayscale difference
+        diff = abs(grayscale(image1) - grayscale(image2)); %get grayscale difference
         
-        new = thresholding(new, threshold); %Image Thresholding
+        diff = thresholding(diff, threshold); %Image Thresholding
         
         figure('visible', 'off'); %generate figure but don't display
-        imshow(new); %import differentiated picture to figure
+        imshow(diff); %import thresholded picture to figure
 
         f = getframe(); %get frame for video
         writeVideo(vFrameDiff, f); %write video
