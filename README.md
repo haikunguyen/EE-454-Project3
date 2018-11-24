@@ -9,6 +9,7 @@ This project demonstrates four simple motion detection algorithms used on a coll
   
 The project was implemented using MATLAB.
 
+
 In this repository, you will find:
   1. panelView.m - a composite of all four motion detection algorithms used to render a 4-panel video displaying each method
   2. simpleBGsubtract.m - an implementation of simple background subtraction method with video rendering
@@ -20,6 +21,7 @@ In this repository, you will find:
   8. thresholding.m - a function used to filter pixels to a certain threshold. (pixels below) = 0 & (pixels above) == 255
 
 
+
 Implementation Process:
 
 simpleBGsubtract, simpleFrameDifference, adaptiveBGsubtract, and persistFrameDifference were all created as test programs to
@@ -27,6 +29,7 @@ individually demonstrate each motion detecting algorithm for analysis and refine
 
 Once each individual algorithms' code was sufficient, they were implemented into a single program (panelView) to allow for direct 
 comparison between each algorithm with a 4-panel display.
+
 
 *NOTE: 
 
