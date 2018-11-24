@@ -29,6 +29,7 @@ Once each individual algorithms' code was sufficient, they were implemented into
 comparison between each algorithm with a 4-panel display.
 
 *NOTE: 
+
 You can find a full report on this project in the repository titled, "Motion Detection Report."
 
 The report details the implementation procedure, as well as the intermediate and final results and the code's efficiency in more detail.
