@@ -15,7 +15,7 @@ In this repository, you will find:
   2. simpleBGsubtract.m - an implementation of simple background subtraction method with video rendering
   3. simpleFrameDifference.m - an implementation of simple frame differencing method with video rendering
   4. adaptiveBGsubtract.m - an implementation of adaptive background subtraction method with video rendering
-  5. persistFrameDifference.m - an implementation of persistent frame differencing with video rendering
+  5. persistFrameDifference.m - an implementation of persistent frame differencing method with video rendering
   6. grayscale.m - a function used to convert a picture to grayscale
   7. getDim.m - a function used to get the pixel dimension of a picture
   8. thresholding.m - a function used to filter pixels to a certain threshold. (pixels below) = 0 & (pixels above) == 255
