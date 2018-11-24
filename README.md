@@ -21,6 +21,7 @@ In this repository, you will find:
 
 
 Implementation Process:
+
 simpleBGsubtract, simpleFrameDifference, adaptiveBGsubtract, and persistFrameDifference were all created as test programs to
 individually demonstrate each motion detecting algorithm for analysis and refinement of their implementation in the code.
 
@@ -29,4 +30,5 @@ comparison between each algorithm with a 4-panel display.
 
 *NOTE: 
 You can find a full report on this project in the repository titled, "Motion Detection Report."
+
 The report details the implementation procedure, as well as the intermediate and final results and the code's efficiency in more detail.
