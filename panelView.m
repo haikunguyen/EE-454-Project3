@@ -83,7 +83,7 @@ for i = 1:length(files)
     text(xcoords, ycoords + 25, 'Persistent Frame Differencing', 'Color', label.color, 'FontSize', label.fontSize);
     hold off
     
-    saveas(gcf, strcat(newFolderName, '/', sprintf('%04d', i), '.png'));
+    saveas(gcf, strcat(newFolderName, '/', sprintf('%04d', i), '.png')); %save figure as .png with zero padded name for sorting
     clf(); %clear current figure
 end
 
