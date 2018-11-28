@@ -76,10 +76,10 @@ for i = 1:length(files)
     
     %add labels to images
     hold on
-    text(0, 25, 'Simple BG Subtraction', 'Color', label.color, 'FontSize', label.fontSize);
-    text(xcoords, 25, 'Simple Frame Differencing', 'Color', label.color, 'FontSize', label.fontSize);
-    text(0, ycoords + 25, 'Adaptive BG Subtraction', 'Color', label.color, 'FontSize', label.fontSize);
-    text(xcoords, ycoords + 25, 'Persistent Frame Differencing', 'Color', label.color, 'FontSize', label.fontSize);
+    text(0, 25, 'Simple BG Sub', 'Color', label.color, 'FontSize', label.fontSize);
+    text(xcoords, 25, 'Simple Frame Diff', 'Color', label.color, 'FontSize', label.fontSize);
+    text(0, ycoords + 25, 'Adaptive BG Sub', 'Color', label.color, 'FontSize', label.fontSize);
+    text(xcoords, ycoords + 25, 'Persistent Frame Diff', 'Color', label.color, 'FontSize', label.fontSize);
     hold off
     
     %generate video frame
