@@ -1,17 +1,18 @@
 %load pictures from folder
+parentFolder = 'DataSets';
 folderName = 'ArenaA'; %name of folder for video object
-folder = '/ArenaA/'; %name of folder to load pictures from
-directory = strcat('DataSets',folder,'*.jpg'); %concat strings to get folder path to pictures
+folder = strcat('/', folderName, '/'); %name of folder to load pictures from
+directory = strcat(parentFolder,folder,'*.jpg'); %concat strings to get folder path to pictures
 files = dir(directory); %load .jpg pictures to files (struct array)
+
+%make new directory for images after processing
+newFolderName = strcat('new', folderName); %name of folder for new images
+mkdir(pwd, newFolderName); %make new folder for new images
 
 %struct for label properties
 label = struct; %declare a struct
 label.color = 'r'; %label property
 label.fontSize = 10; %label property
-
-%setting up video object to start writing
-video = VideoWriter(strcat(folderName,'.avi')); %create video writing object; saves to <folder>.avi
-open(video); %open video writing object; generates empty array to place frames of video
 
 %paramters for motion detection algorithms
 threshold = 30; %parameter for thesholding in all motion detection algorithms
@@ -19,7 +20,7 @@ alpha = 0.10; %parameter for adaptive background subtraction
 gamma = 40; %parameter for persistent frame differencing
 
 %background set up for each algorithm   
-imageB1 = strcat('DataSets',folder,files(1).name); %concat file path for 1st picture (Simple Background Subtraction)
+imageB1 = strcat(parentFolder,folder,files(1).name); %concat file path for 1st picture (Simple Background Subtraction)
 imageB1 = grayscale(imageB1); %get grayscale of 1st picture
 
 imageB2 = imageB1; %Simple Frame Differencing (reusing background because it's the same for initial image)
@@ -30,12 +31,12 @@ imageB4 = imageB1; %Persistent Frame Differencing
 imageH = 0; %intermediate closed-loop image for persistent frame differencing
 
 %get position coordinates for labels
-[ycoords,xcoords] = getDim(strcat('DataSets',folder,files(1).name));
+[ycoords,xcoords] = getDim(strcat(parentFolder,folder,files(1).name));
 
 %motion detection algorithms (4)
 for i = 1:length(files)
     %1. Simple Background Subtraction Algorithm
-    imageI1 = strcat('DataSets',folder,files(i).name); %concat file path to current picture
+    imageI1 = strcat(parentFolder,folder,files(i).name); %concat file path to current picture
     imageI1 = grayscale(imageI1); %get grayscale of current picture
     diff1 = abs(imageB1 - imageI1); %get absolute difference between background and current pictures
     diff1 = thresholding(diff1, threshold); %image thresholding
@@ -82,10 +83,9 @@ for i = 1:length(files)
     text(xcoords, ycoords + 25, 'Persistent Frame Differencing', 'Color', label.color, 'FontSize', label.fontSize);
     hold off
     
-    %generate video frame
-    f = getframe(); %get frame for video
-    writeVideo(video, f); %write video
+    saveas(gcf, strcat(newFolderName, '/', sprintf('%04d', i), '.png'));
     clf(); %clear current figure
 end
 
-close(video); %close video object to finish
+%generate video
+makeVideo(newFolderName, folderName);
