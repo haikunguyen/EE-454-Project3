@@ -7,7 +7,7 @@ files = dir(directory); %load .jpg pictures to files (struct array)
 %struct for label properties
 label = struct; %declare a struct
 label.color = 'r'; %label property
-label.fontSize = 20; %label property
+label.fontSize = 10; %label property
 
 %setting up video object to start writing
 video = VideoWriter(strcat(folderName,'.avi')); %create video writing object; saves to <folder>.avi
@@ -76,10 +76,10 @@ for i = 1:length(files)
     
     %add labels to images
     hold on
-    text(0, 25, 'Simple BG Sub', 'Color', label.color, 'FontSize', label.fontSize);
-    text(xcoords, 25, 'Simple Frame Diff', 'Color', label.color, 'FontSize', label.fontSize);
-    text(0, ycoords + 25, 'Adaptive BG Sub', 'Color', label.color, 'FontSize', label.fontSize);
-    text(xcoords, ycoords + 25, 'Persistent Frame Diff', 'Color', label.color, 'FontSize', label.fontSize);
+    text(0, 25, 'Simple BG Subtraction', 'Color', label.color, 'FontSize', label.fontSize);
+    text(xcoords, 25, 'Simple Frame Differencing', 'Color', label.color, 'FontSize', label.fontSize);
+    text(0, ycoords + 25, 'Adaptive BG Subtraction', 'Color', label.color, 'FontSize', label.fontSize);
+    text(xcoords, ycoords + 25, 'Persistent Frame Differencing', 'Color', label.color, 'FontSize', label.fontSize);
     hold off
     
     %generate video frame
