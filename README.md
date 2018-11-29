@@ -11,7 +11,7 @@ The project was implemented using MATLAB.
 
 
 In this repository, you will find:
-  1. panelView.m - a composite of all four motion detection algorithms used to render a 4-panel video displaying each method
+  1. panelView.m - a composite of all four motion detection algorithms used to generate a 4-panel image displaying each method
   2. simpleBGsubtract.m - an implementation of simple background subtraction method with video rendering
   3. simpleFrameDifference.m - an implementation of simple frame differencing method with video rendering
   4. adaptiveBGsubtract.m - an implementation of adaptive background subtraction method with video rendering
@@ -19,7 +19,7 @@ In this repository, you will find:
   6. grayscale.m - a function used to convert a picture to grayscale
   7. getDim.m - a function used to get the pixel dimension of a picture
   8. thresholding.m - a function used to filter pixels to a certain threshold. (pixels below) = 0 & (pixels above) == 255
-
+  9. makeVideo.m - a function used to name and render videos given a file path and name for the video
 
 
 Implementation Process:
